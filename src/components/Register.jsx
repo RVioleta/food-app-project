@@ -2,6 +2,9 @@ import { Grid, Box, Typography, TextField, Button } from "@mui/material";
 import img from "./food_left.png";
 import { Link, redirect, useNavigate  } from "react-router-dom";
 import { useState } from "react";
+import axios from "axios";
+
+//const axios = require('axios');
 
 
 
@@ -46,7 +49,22 @@ const Register = () => {
 
   const validateRegister = () => {
     if(email.includes("@") ) {
-      navigate('/login')
+      axios.post('http://localhost:8080/signup/', {
+        firstName:firstName,
+        lasttName:lasttName,
+        username:userName,
+        email:email,
+        password:password,
+        age:age
+      })
+      .then(function (response) {
+        console.log(response);
+        navigate('/login')
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      
     }
     
 

@@ -2,6 +2,7 @@ import { Grid, Box, Typography, Button, TextField } from "@mui/material";
 import img from "./food.png";
 import { Link, useNavigate } from "react-router-dom";
 import React, { useState } from "react";
+import axios from "axios";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -17,12 +18,21 @@ const LoginPage = () => {
   };
 
   const handleLogin = () => {
-    if (username === "viki" && password === "2813") {
-      localStorage.setItem("token", "logirano");
-      console.log("isValid");
-      navigate("/");
-    } else {
-      alert("ne ste registrirani");
+    if(username.includes("@") ) {
+      axios.post('http://localhost:8080/login/', {
+        email:username,
+        password:password,
+       
+      })
+      .then(function (response) {
+        console.log(response);
+        localStorage.setItem("token", response.data.token)
+        navigate("/")
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+      
     }
   };
 
