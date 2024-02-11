@@ -17,6 +17,7 @@ import Menu from "./Menu";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Button } from "rsuite";
 import { Remove } from "@mui/icons-material";
+import axios from "axios";
 
 const AddMeal = () => {
   const [curentDate, setCurentDate] = useState();
@@ -98,9 +99,9 @@ const AddMeal = () => {
   const addItemToList = () => {
     const mealItem= {
       calories:calories,
-      proteins:proteins,
-      fats:fats,
-      carbohydrates:carbohydrates,
+      protein:proteins,
+      fat:fats,
+      carbohydrate:carbohydrates,
       name:nameMealItem
     }
     setMealItems((prevMealItems) => [...prevMealItems, mealItem]);
@@ -118,13 +119,23 @@ const AddMeal = () => {
   const completeMealBtn = () => {
     const completeMealObj = {
       "date":curentDate ,
-      "type":typeMeal,
+      "category":typeMeal,
       "name":nameMeal,
       mealItemList:[...mealItems]
     }
     console.log(completeMealObj);
     //-----------------------------------------------
-  
+    axios.post('http://localhost:8080/meals/',completeMealObj,
+    {
+      headers: {"Authorization" : `Bearer ${localStorage.getItem("token")}`}
+    })
+    .then(function (response) {
+      console.log(response);
+     
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   
   
   //-----------------------------------------------------
@@ -161,23 +172,23 @@ const AddMeal = () => {
                   onChange={(event)=>handleTypeMeal(event)}
                 >
                   <FormControlLabel
-                    value="breakfast"
+                    value="Breakfast"
                     control={<Radio />}
                     label="breakfast"
                     
                   />
                   <FormControlLabel
-                    value="lunch"
+                    value="Lunch"
                     control={<Radio />}
                     label="lunch"
                   />
                   <FormControlLabel
-                    value="dinner"
+                    value="Dinner"
                     control={<Radio />}
                     label="dinner"
                   />
                   <FormControlLabel
-                    value="snack"
+                    value="Snack"
                     control={<Radio />}
                     label="snack"
                   />

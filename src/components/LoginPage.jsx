@@ -27,6 +27,7 @@ const LoginPage = () => {
       .then(function (response) {
         console.log(response);
         localStorage.setItem("token", response.data.token)
+        localStorage.setItem("expirationTime", response.data.expirationTime)
         navigate("/")
       })
       .catch(function (error) {
