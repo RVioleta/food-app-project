@@ -19,7 +19,7 @@ const LogOut = () => {
             <li>
             <Link 
             to="/login/"           
-            onclick ={logout()}
+             onClick={logout()}
             sx={{
               background: "#A8DF8E",
               color: "black",
@@ -36,7 +36,10 @@ const LogOut = () => {
           </ul> */}
           <button onClick={logout()} style={ {background: "#A8DF8E",
               color: "black",
+              textDecoration:'none',
               borderRadius: "25px",
+              padding:'10px 20px',
+              fontSize: "20px",
               marginTop:'50px',}}>
           <a href="/login/" style={ {background: "#A8DF8E",
               color: "black",
