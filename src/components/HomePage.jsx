@@ -1,4 +1,4 @@
-import { MenuItem, Button, Grid, Link, Chip, Stack } from "@mui/material";
+import { Button, Grid, Link,  Stack, Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CheckToken from "./utils/CheckLogin";
@@ -33,17 +33,48 @@ const HomePage = () => {
           <Menu page="home" />
         </Grid>
 
-        <Grid item xs={10}>           
-           <Button variant="contained" sx={{
+        <Grid item xs={10}>    
+        <Box sx={{textAlign:'right', marginRight:'50px', marginTop:'50px'}}>
+        {/* <Button variant="contained" sx={{
                   marginTop: "20px",
                   padding: "10px 30px",
-                  borderRadius: "25px",
-                  background:'green',                  
+                  borderRadius: "25px",                
+                  background:'#A8DF8E',                  
                 }}               
                 >               
-                <Link to={"/addMeal/"} sx={{color:'white', textDecoration:'none', fontSize:"15px"}} >add new meal</Link>
-                </Button>        
+                <Link to={"/addMeal/"} sx={{color:'black', textDecoration:'none', fontSize:"15px"}} >add new meal</Link>
+                </Button>   */}
+                <a href="/addMeal/" style={{marginTop: "20px",
+                  padding: "10px 30px",
+                  borderRadius: "25px",                
+                  background:'#A8DF8E',  
+                  textDecoration:'none',
+                  color:'black',
+                  fontSize:'20px'}}>Add new meal</a>
+          </Box>       
+         
+                      
+                    
           <Chart />
+          <Box sx={{textAlign:'right', marginRight:'50px', marginBottom:'50px', marginTop:'20px'}}>
+        {/* <Button variant="contained" sx={{
+                  marginTop: "20px",
+                  padding: "10px 30px",
+                  borderRadius: "25px",                
+                  background:'#A8DF8E',                  
+                }}               
+                >               
+                <Link to={"/addMeal/"} sx={{color:'black', textDecoration:'none', fontSize:"15px"}} >add new meal</Link>
+                </Button>   */}
+                <a href="/addMeal/" style={{
+                  padding: "10px 30px",
+                  borderRadius: "25px",                
+                  background:'#A8DF8E',  
+                  textDecoration:'none',
+                  color:'black',
+                  fontSize:'20px'}}>Delete meal</a>
+          </Box>       
+
           <DataTable /> 
         </Grid>
 

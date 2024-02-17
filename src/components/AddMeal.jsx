@@ -1,8 +1,4 @@
 import React, { useState } from "react";
-import { Stack, Chip, TextField } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import {
   Grid,
   Box,
@@ -12,12 +8,21 @@ import {
   Radio,
   Typography,
   OutlinedInput,
+  Stack,
+  Chip,
+  TextField
 } from "@mui/material";
+
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Menu from "./Menu";
 import FormHelperText from "@mui/material/FormHelperText";
 import { Button } from "rsuite";
 import { Remove } from "@mui/icons-material";
 import axios from "axios";
+import { redirect } from "react-router-dom";
+
 
 const AddMeal = () => {
   const [curentDate, setCurentDate] = useState();
@@ -94,6 +99,7 @@ const AddMeal = () => {
     setcarbohydrates("");
     setFats("");
     setProteins("");
+    setMealItems([])
    
   };
   const addItemToList = () => {
@@ -131,6 +137,8 @@ const AddMeal = () => {
     })
     .then(function (response) {
       console.log(response);
+      alert ("The meal is added")
+      resetDataInput()
      
     })
     .catch(function (error) {

@@ -4,6 +4,8 @@ import ModelTrainingIcon from '@mui/icons-material/ModelTraining';
 import QueryStatsIcon from '@mui/icons-material/QueryStats';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import HistoryIcon from '@mui/icons-material/History';
+
 import * as React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import Grid from "@mui/material/Grid";
@@ -15,7 +17,7 @@ import support from '../images/marija .png'
 
 const Menu = (props) => {
   return (
-    <div>
+    <div >
       <div className="navMenu">
         <h2 style={{ marginBottom: "50px" }}> FOOD APP</h2>
 
@@ -33,6 +35,19 @@ const Menu = (props) => {
             </Link>
           </li>
 
+          <li className={`${props.page === "history" ? "active-link" : ""}`}>
+            <Link to={"/history/"}>
+              <HistoryIcon
+                style={{
+                  marginLeft: "-30px",
+                  marginTop: "2px",
+                  position: "absolute",
+                }}
+              />
+              History
+            </Link>
+          </li>
+
           <li className={`${props.page === "progress" ? "active-link" : ""}`}>
             <Link to={"/progress/"}>
               <ModelTrainingIcon
@@ -46,7 +61,7 @@ const Menu = (props) => {
             </Link>
           </li>
 
-          <li className={`${props.page === "stats" ? "active-link" : ""}`}>
+          {/* <li className={`${props.page === "stats" ? "active-link" : ""}`}>
             <Link to={"/stats/"}>
               <QueryStatsIcon
                 style={{
@@ -57,7 +72,7 @@ const Menu = (props) => {
               />{" "}
               Stats
             </Link>
-          </li>
+          </li> */}
 
           <li className={`${props.page === "settings" ? "active-link" : ""}`}>
             <Link to={"/settings/"}>
@@ -71,6 +86,8 @@ const Menu = (props) => {
               Settings
             </Link>
           </li>
+
+         
 
           <li className={`${props.page === "logout" ? "active-link" : ""}`}>
             <Link to={"/logout/"}>

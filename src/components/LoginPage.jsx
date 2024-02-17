@@ -18,22 +18,20 @@ const LoginPage = () => {
   };
 
   const handleLogin = () => {
-    if(username.includes("@") ) {
-      axios.post('http://localhost:8080/login/', {
-        email:username,
-        password:password,
-       
-      })
-      .then(function (response) {
-        console.log(response);
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("expirationTime", response.data.expirationTime)
-        navigate("/")
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-      
+    if (username.includes("@")) {
+      axios.post("http://localhost:8080/login/", {
+          email: username,
+          password: password,
+        })
+        .then(function (response) {
+          console.log(response);
+          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("expirationTime", response.data.expirationTime);
+          navigate("/");
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
   };
 

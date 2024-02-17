@@ -1,7 +1,11 @@
 import Menu from "./Menu";
-import { MenuItem, Button, Grid } from "@mui/material";
+import { MenuItem, Button, Grid, Link } from "@mui/material";
 
 const LogOut = () => {
+
+  const logout = () =>{
+    localStorage.removeItem("token")
+  }
   return (
     <div>
       <Grid container spacing={3}>
@@ -10,15 +14,39 @@ const LogOut = () => {
         </Grid>
 
         <Grid item xs={10}>
-          <h2>Do you want to log out?</h2>
-          <Button
-            variant="contained"
-            color="success"
-            sx={{ marginTop: "20px", 
-            padding: "15px 30px" }}
+          <h2 style={{marginTop:"100px", marginBottom:"50px"}}>Do you want to log out?</h2>
+          {/* <ul>
+            <li>
+            <Link 
+            to="/login/"           
+            onclick ={logout()}
+            sx={{
+              background: "#A8DF8E",
+              color: "black",
+              textDecoration:'none',
+              borderRadius: "25px",
+              padding:'10px 20px',
+              fontSize: "20px",
+              marginTop:'50px',
+            }}
           >
-            Log out
-          </Button>
+            Log Out
+          </Link>
+            </li>
+          </ul> */}
+          <button onClick={logout()} style={ {background: "#A8DF8E",
+              color: "black",
+              borderRadius: "25px",
+              marginTop:'50px',}}>
+          <a href="/login/" style={ {background: "#A8DF8E",
+              color: "black",
+              textDecoration:'none',
+              borderRadius: "25px",
+              padding:'10px 20px',
+              fontSize: "20px",
+              marginTop:'50px',}}>Log Out</a>
+            </button>
+         
         </Grid>
       </Grid>
     </div>

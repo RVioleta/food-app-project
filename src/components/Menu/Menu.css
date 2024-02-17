@@ -1,6 +1,7 @@
 
 .navMenu{
     background-color:#A8DF8E;
+    height: 900px;
     padding: 15px;
     
 }
@@ -52,7 +53,8 @@
 }
 
 .support{
-    height: 245px;
+    height: 300px;
+    margin-top: 50px;
     background-color: #E1F0DA;
     border-radius: 15px;
 }
@@ -66,7 +68,7 @@
 }
 
 .support img{
-    height: 110px;
+    height: 150px;
     width: 180px;
     border-radius: 15px;   
     padding-top: 15px;

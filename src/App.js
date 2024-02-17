@@ -7,6 +7,7 @@ import HomePage from "./components/HomePage";
 import Progress from "./components/Progress";
 import Stats from "./components/Stats";
 import Settings from "./components/Settings";
+import History from "./components/History";
 import LogOut from "./components/LogOut";
 import Support from "./components/Support";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     path: "/logout/",
     element: <LogOut/>,
   }, 
+  {
+    path: "/history/",
+    element: <History/>,
+  },
 
   {
     path: "/addMeal/",
